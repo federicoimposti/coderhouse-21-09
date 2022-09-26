@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('../partials/head'); %>
+        <title>Coderhouse Backend - Auth</title>
+    </head>
+    <body>
+        <div class="container">
+            <form class="login-form" action="/login" method="POST">
+                <input type="text" name="username" id="username" placeholder="Usuario" required>
+                <input type="submit" value="Log in">
+            </form>
+        </div>
+    </body>
+</html>
