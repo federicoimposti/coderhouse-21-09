@@ -6,8 +6,6 @@ const save = async (user) => {
   const newUser = new User(user); 
   try {
     const userExist = await User.findOne({email: user.email});
-
-    console.log('a ver a ver', userExist);
     if (userExist) { 
       return false; 
     } else { 

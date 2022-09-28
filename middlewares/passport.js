@@ -9,6 +9,7 @@ passport.use(
     User.findOne({ email: username }, (err, user) => {
       if (err) console.log(err);
       if (!user) return done(null, false);
+      
       bcrypt.compare(password, user.password, (err, isMatch) => {
         if (err) console.log(err);
         if (isMatch) return done(null, user);

@@ -1,13 +1,13 @@
 const express = require('express');
 const productFormRouter = express.Router();
+const auth = require('../middlewares/auth');
+const User = require('../models/User'); 
 
-productFormRouter.get("/", (req, res) => {
-    if (req.session?.user) {
-        res.render('pages/productForm', { user: req.session.user });
-      }
-      else {
-        res.render('pages/login');
-      }  
+productFormRouter.get("/", auth, async (req, res) => {
+  const { username } = await User.findById(req.user._id);
+  res.render("pages/productForm", {
+    user: username,
+  });
 });
 
 module.exports = productFormRouter;
