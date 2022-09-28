@@ -27,6 +27,14 @@ const io = new IOServer(httpServer);
 const uri = "mongodb+srv://fimposti:CoderHouse27@hms.i5ds7.mongodb.net/?retryWrites=true&w=majority";
 
 const MongoStore = require("connect-mongo");
+const mongoose = require('mongoose');
+
+try {
+    mongoose.connect(uri);
+    console.log('Successful database connection');
+  } catch (err) {
+    throw new Error('Ocurrió un error al conectarse a la base de datos.', err);
+}
 
 const advanceOptions = {
   useNewUrlParser: true,
